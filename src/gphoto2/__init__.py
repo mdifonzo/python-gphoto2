@@ -38,7 +38,7 @@ def check_result(result):
     if error in (GP_ERROR_IO_USB_CLAIM,
                  GP_ERROR_IO_USB_FIND,
                  GP_ERROR_MODEL_NOT_FOUND):
-        raise GPhoto2Error(error, gp_result_as_string(error))
+        return '[{}] {}'.format(error, gp_result_as_string(error))
     elif error < 0:
         _return_logger.error('[%d] %s', error, gp_result_as_string(error))
     return result
